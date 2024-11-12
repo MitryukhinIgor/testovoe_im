@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/style.css">
+    <script defer src="src/index.js"></script>
+    <title>form</title>
+</head>
+
+<body class="wrapper">
+    <div class="container form_container">
+         <form class="form" action="" method="get">
+            <div class="title_form">
+                <span>Расчитать кредит:</span>
+            </div>
+            <div class="form_kredit">
+                <label >Укажите тип валюты:</label>
+                <select class = "currency" id="currency" name="currency" required>
+                    <option>RUB</option>
+                    <option>USD</option>
+                    <option>EUR</option>
+                    <option>AED</option>
+                    
+                </select>
+            </div>
+             <div class="form_kredit">
+                 <label >Введите сумму кредита:</label>
+                     <input class=" field sum_kredit"  type="text" name="name" />
+             </div>
+             <div class="form_kredit">
+                <label >Введите процентную ставку (в процентах):</label>
+                    <input class=" field pircent_kredit" type="text" name="name" />
+            </div>
+            <div class="form_kredit">
+                <label >Введите срок кредита (в месяцах):</label>
+                    <input class=" field time_kredit" type="text" name="name" />
+            </div>
+            
+             <div class="form_kredit">
+                  <input class="form_submit" type="submit" value="Отправить"/>
+            </div>  
+        </form>
+    </div>
+</body>
+
+</html>
