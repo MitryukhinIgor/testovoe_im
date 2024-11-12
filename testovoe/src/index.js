@@ -11,9 +11,10 @@ const rates ={};
 fetch('https://www.cbr-xml-daily.ru/daily_json.js').then(function(result){
     return result.json()
 }).then(function(data){
+    rates.RUB = 1;
     rates.USD = data.Valute.USD.Value;
     rates.EUR= data.Valute.EUR.Value;
-    rates.AED= data.Valute.EUR.Value;
+    rates.AED= data.Valute.AED.Value;
     
     
 })
@@ -58,23 +59,23 @@ var errors = form.querySelectorAll(".error")
     
             
 
-            if(current_valute != 'RUB'){
-                var example_title = generate_form_kredit(' Результат(в рублях):');
+            if(true){
+                var example_title = generate_form_kredit(' Результат(в RUB):');
+                examples[4].parentElement.appendChild(example_title);
+
+                var example_P = generate_form_kredit(' ежемесячный платеж:'+ Math.round(P*100*rates[current_valute])/100);
+                examples[4].parentElement.appendChild(example_P);
+
+                var example_T = generate_form_kredit(' итоговая стоимость кредита:'+ Math.round(T*100*rates[current_valute])/100);
+                examples[4].parentElement.appendChild(example_T);
+
+                var example_title = generate_form_kredit(' Результат(в '+ current_valute +'):');
                 examples[4].parentElement.appendChild(example_title);
 
                 var example_P = generate_form_kredit(' ежемесячный платеж:'+ Math.round(P*100)/100);
                 examples[4].parentElement.appendChild(example_P);
 
                 var example_T = generate_form_kredit(' итоговая стоимость кредита:'+ Math.round(T*100)/100);
-                examples[4].parentElement.appendChild(example_T);
-
-                var example_title = generate_form_kredit(' Результат(в '+ current_valute +'):');
-                examples[4].parentElement.appendChild(example_title);
-
-                var example_P = generate_form_kredit(' ежемесячный платеж:'+ Math.round(P*100/rates[current_valute])/100);
-                examples[4].parentElement.appendChild(example_P);
-
-                var example_T = generate_form_kredit(' итоговая стоимость кредита:'+ Math.round(T*100/rates[current_valute])/100);
                 examples[4].parentElement.appendChild(example_T);
 
                 var remove_examples = form.querySelectorAll(".form_kredit");
@@ -82,24 +83,8 @@ var errors = form.querySelectorAll(".error")
                     for(var i=5; i < 11; i++){
                         remove_examples[i].remove();
                     }
-                } 
-
-            }else{
-                var example_title = generate_form_kredit(' Результат(в рублях):');
-                examples[4].parentElement.appendChild(example_title);
-
-                var example_P = generate_form_kredit(' ежемесячный платеж:'+ Math.round(P*100)/100);
-                examples[4].parentElement.appendChild(example_P);
-
-                var example_T = generate_form_kredit(' итоговая стоимость кредита:'+ Math.round(T*100)/100);
-                examples[4].parentElement.appendChild(example_T);
-                
-                var remove_examples = form.querySelectorAll(".form_kredit");
-                if(remove_examples.length > 8){
-                    for(var i=5; i < 11; i++){
-                        remove_examples[i].remove();
-                    }
-                } 
-            }  
+                }    
+            } 
+            
     }
 })
