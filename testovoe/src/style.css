@@ -34,6 +34,9 @@
 .form_submit:hover{
     background-color: #9d44d9;
     color: #FFFFFF;
-    
-    
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
